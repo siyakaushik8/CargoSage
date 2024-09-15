@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Route Calculator</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .navbar img.profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .navbar .search-box {
+            display: flex;
+        }
+        .navbar .search-box input {
+            padding: 5px;
+            font-size: 16px;
+        }
+        .navbar .search-box button {
+            padding: 5px 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .navbar .search-box button:hover {
+            background-color: #777;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background-color: #f0f0f0;
+            padding: 50px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .hero label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Centering the button */
+        .hero button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Centering the content inside the hero section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Image Styles */
+        .image {
+            padding: 50px;
+        }
+        .image img {
+            max-width: 100%; /* Makes the image responsive */
+            height: auto;    /* Adjusts height proportionally */
+            width: 1200px;    /* Sets a specific width */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Shipping Route Calculator</h1>
+        <p>Select a port to view shipping details</p>
+        <div class="image">
+            <img src="image1.png" alt="photo">
+        </div>
+
+        <!-- Start Port Selection -->
+        <label for="start-port">Start Port:</label>
+        <select id="start-port">
+            <option value="">Select Start Port</option>
+            <option value="New York">New York</option>
+            <option value="Miami">Miami</option>
+            <option value="New Orleans">New Orleans</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Houston">Houston</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Boston">Boston</option>
+            <option value="Charleston">Charleston</option>
+            <option value="Anchorage">Anchorage</option>
+        </select>
+
+        <!-- Weight Category Selection -->
+        <label for="weight-category">Weight Category:</label>
+        <select id="weight-category">
+            <option value="Heavy">Heavy</option>
+            <option value="Standard">Standard</option>
+            <option value="Light">Light</option>
+        </select>
+
+        <!-- End Port Selection -->
+        <label for="end-port">End Port:</label>
+        <select id="end-port">
+            <option value="">Select End Port</option>
+            <option value="New York">New York</option>
+            <option value="Miami">Miami</option>
+            <option value="New Orleans">New Orleans</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Houston">Houston</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Boston">Boston</option>
+            <option value="Charleston">Charleston</option>
+            <option value="Anchorage">Anchorage</option>
+        </select>
+
+        <!-- Centered Button -->
+        <button onclick="calculateRoute()">Calculate Route</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Shipping Route Calculator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateRoute() {
+            const startPort = document.getElementById('start-port').value;
+            const weightCategory = document.getElementById('weight-category').value;
+            const endPort = document.getElementById('end-port').value;
+
+            if (startPort && endPort) {
+                alert(`Route selected from ${startPort} to ${endPort}. Weight category: ${weightCategory}.`);
+                // You can add more complex calculations here, such as distance between ports.
+            } else {
+                alert('Please select both start and end ports.');
+            }
+        }
+    </script>
+
+</body>
+</html>
